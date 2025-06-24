@@ -15,12 +15,13 @@
           font-size: 16px;
         }
         </style>
-        
+
 </head>
 <body>
 
-    <h2>Calculadora de Operaciones</h2>
+    <h2>Calculadora basica</h2>
 
+    <!-- Formulario -->
   <form id="formCalculadora" onsubmit="return false;">
     <label for="numero1">Numero 1:</label><br>
     <input type="number" id="numero1" required><br>
@@ -28,6 +29,7 @@
     <label for="numero2">Numero 2:</label><br>
     <input type="number" id="numero2" required><br>
 
+    <!-- Tipo de operacion-->
     <label for="operacion">Operacion:</label><br>
     <select id="operacion">
       <option value="suma">Suma</option>
@@ -36,10 +38,12 @@
       <option value="division">Division</option>
     </select><br>
 
+    <!-- Boton para calcular -->
     <button id="btnCalcular" onclick="calcular()">Calcular</button>
   </form>
 
+  <!-- Muestra el resultado -->
   <h3>Resultado: <span id="resultado">---</span></h3>
-    
+    <script src="script.js"></script>
 </body>
 </html>
