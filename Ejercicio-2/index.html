@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filtrar palabras</title>
-</head>
-<body>
 
+    <style>
+      /* Estilo básico de la página */
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      #resultado {
+        margin-top: 15px;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
     <h1>Filtrar Lista de Palabras</h1>
+    <!-- Formulario -->
+    <form id="filtroForm">
+      <input
+        type="text"
+        id="palabraInput"
+        placeholder="Ingrese una palabra..."
+      />
+      <button type="submit">Filtrar</button>
+    </form>
 
-  <form id="filtroForm">
-    <input type="text" id="palabraInput" placeholder="Ingrese una palabra..." />
-    <button type="submit">Filtrar</button>
-  </form>
-
-  <div id="resultado"></div>
-
-  <script src="script.js"></script>
-  
-</body>
+    <!-- Contenedor donde se mostrara el resultado-->
+    <div id="resultado"></div>
+    <!-- Se conecta el archivo JavaScript externo -->
+    <script src="script.js"></script>
+  </body>
 </html>

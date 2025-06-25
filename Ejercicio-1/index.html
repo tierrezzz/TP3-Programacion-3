@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora</title>
     <!-- Estilo para la calculadora -->
     <style>
-        body {
-          font-family: Arial, sans-serif;
-          margin: 40px;
-        }
-        input, select, button {
-          margin: 10px 0;
-          padding: 8px;
-          font-size: 16px;
-        }
-        </style>
-
-</head>
-<body>
-
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+      }
+      input,
+      select,
+      button {
+        margin: 10px 0;
+        padding: 8px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
     <h2>Calculadora basica</h2>
 
     <!-- Formulario -->
-  <form id="formCalculadora" onsubmit="return false;">
-    <label for="numero1">Numero 1:</label><br>
-    <input type="number" id="numero1" required><br>
+    <form id="formCalculadora" onsubmit="return false;">
+      <label for="numero1">Numero 1:</label><br />
+      <input type="number" id="numero1" required /><br />
 
-    <label for="numero2">Numero 2:</label><br>
-    <input type="number" id="numero2" required><br>
+      <label for="numero2">Numero 2:</label><br />
+      <input type="number" id="numero2" required /><br />
 
-    <!-- Tipo de operacion-->
-    <label for="operacion">Operacion:</label><br>
-    <select id="operacion">
-      <option value="suma">Suma</option>
-      <option value="resta">Resta</option>
-      <option value="multiplicacion">Multiplicacion</option>
-      <option value="division">Division</option>
-    </select><br>
+      <!-- Tipo de operacion-->
+      <label for="operacion">Operacion:</label><br />
+      <select id="operacion">
+        <option value="suma">Suma</option>
+        <option value="resta">Resta</option>
+        <option value="multiplicacion">Multiplicacion</option>
+        <option value="division">Division</option></select
+      ><br />
 
-    <!-- Boton para calcular -->
-    <button id="btnCalcular" onclick="calcular()">Calcular</button>
-  </form>
+      <!-- Boton para calcular -->
+      <button id="btnCalcular" onclick="calcular()">Calcular</button>
+    </form>
 
-  <!-- Muestra el resultado -->
-  <h3>Resultado: <span id="resultado">---</span></h3>
+    <!-- Muestra el resultado -->
+    <h3>Resultado: <span id="resultado">---</span></h3>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
