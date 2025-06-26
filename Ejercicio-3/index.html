@@ -12,17 +12,70 @@
       que están completadas y las muestra en una lista.
     </p>
 
-    <!-- Botón que dispara la carga de tareas -->
+    <!-- Boton que ejecuta la carga de tareas -->
     <button id="fetch-todos-btn">Cargar Tareas Completadas</button>
 
-    <!-- Mensaje que aparece mientras se cargan las tareas -->
+    <!-- Mensaje Cargando tareas...-->
     <div id="loading" style="display: none">Cargando tareas...</div>
 
-    <!-- Lista donde se mostrarán las tareas completadas -->
+    <!-- Lista -->
     <ul id="todos-list"></ul>
 
-    <!-- Contenedor para mostrar errores si ocurren -->
+    <!-- Contenedor para mostrar errores  -->
     <div id="error-message" class="error"></div>
-    
+    <script>
+        // URL del endpoint con limite de 5 tareas
+        const todosEndpoint = "https://jsonplaceholder.typicode.com/todos?_limit=5";
+  
+        // Obtener referencias a elementos del DOM
+        const todosList = document.getElementById("todos-list");
+        const errorMessageDiv = document.getElementById("error-message");
+        const loadingDiv = document.getElementById("loading");
+        const fetchTodosBtn = document.getElementById("fetch-todos-btn");
+  
+        // Evento que se activa al hacer clic en el boton
+        fetchTodosBtn.addEventListener("click", async () => {
+          todosList.innerHTML = "";
+          errorMessageDiv.textContent = "";
+          loadingDiv.style.display = "block"; 
+          try {
+            // Hacer la solicitud GET a la API
+            const response = await fetch(todosEndpoint);
+  
+            // Ocultar el mensaje de carga
+            loadingDiv.style.display = "none";
+  
+            // Verificar si hubo error en la respuesta
+            if (!response.ok) {
+              errorMessageDiv.textContent = `Hubo un problema: ${response.status} - ${response.statusText}`;
+              return; 
+            }
+  
+            // Convertir los datos de respuesta a formato JSON
+            const data = await response.json();
+  
+            // Filtrar solo las tareas completadas 
+            const completadas = data.filter((todo) => todo.completed);
+  
+            // Recorrer las tareas completadas y mostrarlas en la lista <ul>
+            completadas.forEach((todo) => {
+              const li = document.createElement("li"); 
+              li.classList.add("completed"); 
+              li.innerHTML = `<strong>${todo.title}</strong> (ID: ${todo.id})`; 
+              todosList.appendChild(li);
+            });
+  
+            // Si no hay tareas completadas entre las 5
+            if (completadas.length === 0) {
+              todosList.innerHTML = "<li>No hay tareas completadas.</li>";
+            }
+          } catch (error) {
+            // Mostrar mensaje de error si falla la conexión o la API
+            loadingDiv.style.display = "none";
+            errorMessageDiv.textContent = "Error al cargar las tareas.";
+            console.error(error);
+          }
+        });
+      </script>
 </body>
 </html>
