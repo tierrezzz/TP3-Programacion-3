@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de tareas</title>
+    <style>
+        /* Estilo de la página */
+        body {
+          font-family: sans-serif;
+          line-height: 1.6;
+          padding: 20px;
+        }
+  
+        li.completed {
+          background-color: #e6ffe6; 
+          border-left: 5px solid green;
+          padding: 10px;
+          margin-bottom: 5px;
+          border-radius: 5px;
+          list-style: none; /
+        }
+  
+        .error {
+          color: red;
+          font-weight: bold;
+        }
+  
+        #loading {
+          font-style: italic;
+        }
+      </style>
 </head>
 <body>
     <h1>Lista de Tareas Completadas</h1>
@@ -25,7 +51,7 @@
     <div id="error-message" class="error"></div>
     <script>
         // URL del endpoint con limite de 5 tareas
-        const todosEndpoint = "https://jsonplaceholder.typicode.com/todos?_limit=5";
+        const todosEndpoint = "https://jsonplaceholder.typicode.com/todos";
   
         // Obtener referencias a elementos del DOM
         const todosList = document.getElementById("todos-list");
