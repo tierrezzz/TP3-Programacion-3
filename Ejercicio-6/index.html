@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMC con React</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMC</title>
+    <!-- React y Babel desde CDN -->
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-</head>
-<body>
-    
-</body>
+
+    <!-- Estilo -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 2rem;
+      }
+      input,
+      button {
+        padding: 8px;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+      .amarillo {
+        color: yellow;
+      }
+      .verde {
+        color: green;
+      }
+      .naranja {
+        color: orange;
+      }
+      .rojo {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="root"></div>
+    <!-- Tu componente App -->
+    <script src="app.jsx" type="text/babel"></script>
+
+    <!-- Renderizado del componente App -->
+    <script type="text/babel">
+      const container = document.getElementById("root");
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+    </script>
+  </body>
 </html>
